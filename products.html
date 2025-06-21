@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+//         fetch('https://dummyjson.com/products')
+// .then(res => res.json())
+// .then(  => {
+//     const products = data.products;
+//     const productContainer = document.createElement('div');
+//     productContainer.className = 'product-container';
+//     for (let i = 0; i < products.length; i++) {
+//         console.log(products[i].image);
+//         const productCard = document.createElement('div');
+//         productCard.className = 'product-card';
+//         productCard.innerHTML = `
+//             <img src="${product.image}" alt="${product.name}">
+//             <h2>${product.name}</h2>
+//             <p>${product.description}</p>
+//             <p>Price: $${product.price}</p>
+//             <button class="btn-primary">Add to Cart</button>
+//         `;
+//         productContainer.appendChild(productCard);
+    
+//         document.body.appendChild(productContainer);
+//     }
+//     }
+// );
+fetch('https://dummyjson.com/products')
+  .then(res => res.json())
+  .then(data => {
+    const products = data.products;
+    const productContainer = document.createElement('div');
+    productContainer.className = 'product-container';
+
+    for (let i = 0; i < products.length; i++) {
+      const product = products[i];
+      const productCard = document.createElement('div');
+      productCard.className = 'product-card';
+      productCard.innerHTML = `
+        <img src="${product.thumbnail}" alt="${product.title}">
+        <h2>${product.title}</h2>
+        <p>${product.description}</p>
+        <p>Price: $${product.price}</p>
+        <button class="btn-primary">Add to Cart</button>
+      `;
+      productContainer.appendChild(productCard);
+    }
+
+    document.body.appendChild(productContainer);
+  });
+
+
+
+    </script>
+</body>
+</html>

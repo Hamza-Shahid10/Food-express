@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Create your account - Secure authentication system" />
+  <title>Sign Up - Create Account</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+:root {
+  --color-primary: #4871c9;
+  --color-secondary: #4b77d6;
+  --color-bg: #121212;
+  --color-card: #1E1E1E;
+  --color-muted: #a0a0a0;
+  --color-accent: #3968ce;
+  --color-text: #ffffff;
+  --color-success: #28a745;
+}
+
+body {
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+  padding: 2rem 1rem;
+  color: var(--color-text);
+}
+
+.signup-box {
+  background: var(--color-card);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+.signup-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--color-secondary);
+}
+
+.signup-header h2 {
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.signup-header p {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-control {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  color: var(--color-text);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 3px rgba(255, 84, 50, 0.2);
+  border-color: var(--color-secondary);
+  outline: none;
+}
+
+.password-requirements {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+}
+
+.requirement.valid {
+  color: var(--color-success);
+}
+
+.btn-signup {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-signup:hover {
+  background: var(--color-accent);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 76, 41, 0.3);
+}
+
+.btn-signup:active {
+  transform: translateY(0);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.login-link a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+  color: var(--color-secondary);
+}
+
+@media (max-width: 576px) {
+  .signup-box {
+    padding: 2rem 1.5rem;
+  }
+}
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="signup-box">
+          <div class="signup-header">
+            <h2>Create Account As Admin</h2>
+            <p>Join us today and get access to all features</p>
+          </div>
+          <form id="signupForm" novalidate>
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="fullName" 
+                placeholder="Enter your full name"
+                required 
+              />
+              <div class="invalid-feedback">Please enter your full name</div>
+            </div>
+            <div class="form-group">
+              <label for="fullName" class="form-label">Business category</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="businessCategory" 
+                placeholder="Enter your business category"
+                required 
+              />
+              <div class="invalid-feedback">Please enter your full name</div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                placeholder="email@example.com"
+                required 
+              />
+              <div class="invalid-feedback">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label">Password</label>
+              <div class="position-relative">
+                <input 
+                  type="password" 
+                  class="form-control" 
+                  id="password" 
+                  placeholder="Create a strong password"
+                  required 
+                />
+              </div>
+              <div class="password-requirements mt-2">
+                <div class="requirement" id="lengthReq">
+                  <i class="fas fa-circle"></i>
+                  <span>At least 8 characters</span>
+                </div>
+                <div class="requirement" id="upperReq">
+                  <i class="fas fa-circle"></i>
+                  <span>One uppercase letter</span>
+                </div>
+                <div class="requirement" id="numberReq">
+                  <i class="fas fa-circle"></i>
+                  <span>One number</span>
+                </div>
+                <div class="requirement" id="specialReq">
+                  <i class="fas fa-circle"></i>
+                  <span>One special character</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="adminsignup(event)" class="btn-signup">
+              <i class="fas fa-user-plus me-2"></i>Create Account
+            </button>
+
+            <div class="login-link">
+                <p>Already have an account? <a href="./admin-login.html">Log in</a></p>
+                <br>
+                <p>Want to sign in as User <a href="./singup.html">Sign up</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Files -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
